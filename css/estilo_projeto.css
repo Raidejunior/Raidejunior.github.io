@@ -1,0 +1,54 @@
+#title
+{
+	text-align: center;
+	color:#FFFFF;
+	font-size: 50px;
+	margin-bottom: auto;
+}
+#subtitle
+{
+	text-align: center;
+	color:#008000;
+	font-size:20px;
+	margin-top: auto;
+
+}
+.left
+{
+	float: left;
+	width: 800px;
+}
+.right
+{
+	float: right;
+	width: 700px;
+}
+.active
+{
+	background: darkcyan;
+    border-radius: 50px;
+    border: 2px solid;
+    padding:10px;
+    border-color: rgba(255,255,255,.8);
+    color: transparent;
+
+}
+.ul
+{
+	color: #fffff;
+	display: -webkit-inline-box;
+	margin-left:800px;
+	margin-right: 15px;
+	font-size: 20px;
+
+}
+.btn
+{
+	background-color: #120A8F;
+	color: #FFFFFF;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	display: inline-block;
+	text-align: center;
+	width: 2000px;
+}
