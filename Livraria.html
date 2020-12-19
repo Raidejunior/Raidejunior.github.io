@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title>Javascript</title>
+</head>
+<body>
+
+	<div class="content">
+
+			<h1>Livraria do Cefet</h1>
+			<p>
+				Nesta atividade, você deve desenvolver uma tela de cadastro de livros para uma biblioteca. Sua interface organizar em uma tabela todos os livros digitados no formulário para uma posterior submissão em bloco.
+			</p>
+			<fieldset>
+				<legend>Cadastro de Livros</legend>
+				<label>Título</label>
+				<input type="text" id="titulo" placeholder="Digite o título do livro"> <br>
+				<label>Autores</label>
+				<input type="text" id="autores" placeholder="Digite os autores da obra"> <br>
+				<label>Estilo</label>
+				<input type="text" id="estilo" placeholder="Digite o estilo do livro">
+				<br>
+				<button id="adicionar">Adicionar</button>
+				<button id="excluir">Limpar</button>
+			</fieldset>
+			
+			<table id="acervo">
+				<tbody>
+					<tr>
+						<th>Título</th>
+						<th>Autores</th>
+						<th>Estilo</th>
+						<th></th>
+					</tr>
+				</tbody>
+			</table>
+			<button id="apagarAcervo">Apagar</button>
+		</div>
+
+<script>
+
+	//função construtora de objetos Produto
+function Livro(id, nome, autores, estilo){
+	this.id = id;
+	this.nome = nome;
+	this.autores = autores;
+	this.estilo = estilo;
+}
+
+// programar a inserção dos novos livros no array listaLivros e sua adição no DOM
+function adicionarLivro(livro){
+// seu programa aqui.
+}
+
+// programar a remoção do livro no array listaLivros e sua remoção no DOM
+function removerLivro(livro){
+// seu programa aqui.
+}
+
+var listaLivros = [];
+		
+$(function(){
+
+	$("#adicionar").click(function(){
+		var tituloLivro = $("#titulo").val();
+		var autores = $("#autores").val();
+		var estilo = $("#estilo").val();
+		$("#acervo").append(
+				$("<tr>")
+					.append($("<td>").text(tituloLivro))
+					.append($("<td>").text(autores))
+					.append($("<td>").text(estilo))
+					.append($("<td>")
+						.append($("<a>")
+								.attr("href", "#")
+								.text("Apagar"))
+					)
+		)
+		$("#titulo").val("");
+		$("#autores").val("");
+		$("#estilo").val("");
+	});
+
+	$("#acervo").on("click", "a", function(){
+		$(this).parents("tr").remove();
+	})
+
+	$("#excluir").click(function(){
+		
+	})
+
+	$("#apagarAcervo").click(function(){
+		$("#acervo").empty();
+		$("#acervo")
+			.append($("<tr>")
+						.append($("<th>").text("Título"))
+						.append($("<th>").text("Autores"))
+						.append($("<th>").text("Estilo"))
+						.append($("<th>").text(""))
+					)
+	})
+});
+
+</script>
