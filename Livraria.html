@@ -49,8 +49,8 @@ function Livro(id, nome, autores, estilo){
 }
 
 // programar a inserção dos novos livros no array listaLivros e sua adição no DOM
-function adicionarLivro(livro){
-// seu programa aqui.
+function adicionarLivro(String livro[]){
+listaLivros.add(livro[0]);
 }
 
 // programar a remoção do livro no array listaLivros e sua remoção no DOM
@@ -58,7 +58,7 @@ function removerLivro(livro){
 // seu programa aqui.
 }
 
-var listaLivros = [];
+List<String> listaLivros = new ArrayList<String>();
 		
 $(function(){
 
@@ -66,6 +66,7 @@ $(function(){
 		var tituloLivro = $("#titulo").val();
 		var autores = $("#autores").val();
 		var estilo = $("#estilo").val();
+		var array[] = {tituloLivro, autores, estilo};
 		$("#acervo").append(
 				$("<tr>")
 					.append($("<td>").text(tituloLivro))
@@ -77,9 +78,11 @@ $(function(){
 								.text("Apagar"))
 					)
 		)
+		adicionarLivro(array);
 		$("#titulo").val("");
 		$("#autores").val("");
 		$("#estilo").val("");
+
 	});
 
 	$("#acervo").on("click", "a", function(){
