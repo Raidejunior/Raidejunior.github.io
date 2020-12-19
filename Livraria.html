@@ -40,6 +40,13 @@
 
 <script>
 
+	import java.util.ArrayList;
+	import java.util.Iterator;
+	import java.util.Scanner;
+
+	var $btnadicionar = document.querySelector('#adicionar');
+	var $btnexcluir = document.querySelector('#excluir');
+
 	//função construtora de objetos Produto
 function Livro(id, nome, autores, estilo){
 	this.id = id;
@@ -49,8 +56,8 @@ function Livro(id, nome, autores, estilo){
 }
 
 // programar a inserção dos novos livros no array listaLivros e sua adição no DOM
-function adicionarLivro(String livro[]){
-listaLivros.add(livro[0]);
+function adicionarLivro(livro){
+listaLivros.add(this.id,this.nome,this.autores,this.estilo);
 }
 
 // programar a remoção do livro no array listaLivros e sua remoção no DOM
@@ -58,7 +65,7 @@ function removerLivro(livro){
 // seu programa aqui.
 }
 
-List<String> listaLivros = new ArrayList<String>();
+ArrayList<String> listaLivros = new ArrayList();
 		
 $(function(){
 
@@ -66,6 +73,7 @@ $(function(){
 		var tituloLivro = $("#titulo").val();
 		var autores = $("#autores").val();
 		var estilo = $("#estilo").val();
+		var gera_id = 0;
 		var array[] = {tituloLivro, autores, estilo};
 		$("#acervo").append(
 				$("<tr>")
@@ -78,10 +86,11 @@ $(function(){
 								.text("Apagar"))
 					)
 		)
-		adicionarLivro(array);
+		Livro(gera_id, tituloLivro, autores, estilo);
 		$("#titulo").val("");
 		$("#autores").val("");
 		$("#estilo").val("");
+		gera_id++;
 
 	});
 
