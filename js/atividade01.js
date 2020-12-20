@@ -28,7 +28,7 @@ $(function(){
 		var tituloLivro = $("#titulo").val();
 		var autores = $("#autores").val();
 		var estilo = $("#estilo").val();
-		var x = titulolivro.id;
+		var x = tituloLivro.id;
 		$("#acervo").append(
 				$("<tr>")
 					.append($("<td>").text(tituloLivro))
