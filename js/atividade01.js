@@ -10,18 +10,14 @@ function Livro(id, nome, autores, estilo){
 
 // programar a inserção dos novos livros no array listaLivros e sua adição no DOM
 function adicionarLivro(livro){
-	var count = 0;
-	listaLivros[count] = livro;
+	listaLivros[this.id] = livro;
 	console.log(listaLivros[count]);
-	count++;
 }
 
 // programar a remoção do livro no array listaLivros e sua remoção no DOM
 function removerLivro(titulolivro){
 	listaLivros.splice(titulolivro);
-	for(i=0; i<listaLivros.length; i++){
-	console.log(listaLivros[i]);
-}
+	console.log(listaLivros[$(this).parents(count)]);
 }
 
 var listaLivros = [];
@@ -44,11 +40,11 @@ $(function(){
 								.text("Apagar"))
 					)
 		)
-		Livro(id, tituloLivro, autores, estilo);
+		Livro(Convert.toString(id), tituloLivro, autores, estilo);
+		id++;
 		$("#titulo").val("");
 		$("#autores").val("");
 		$("#estilo").val("");
-		id++;
 	});
 
 	$(document.getElementsByTagName("a")).click(function(){
