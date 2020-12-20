@@ -28,8 +28,7 @@ $(function(){
 		var tituloLivro = $("#titulo").val();
 		var autores = $("#autores").val();
 		var estilo = $("#estilo").val();
-		this.id = 0
-		var n = this.id.toString();
+		var x = document.getElementsById("titulo").id;
 		$("#acervo").append(
 				$("<tr>")
 					.append($("<td>").text(tituloLivro))
@@ -41,8 +40,7 @@ $(function(){
 								.text("Apagar"))
 					)
 		)
-		Livro(n, tituloLivro, autores, estilo);
-		this.id++;
+		Livro(x, tituloLivro, autores, estilo);
 		$("#titulo").val("");
 		$("#autores").val("");
 		$("#estilo").val("");
