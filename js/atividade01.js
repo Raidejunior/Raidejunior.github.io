@@ -4,22 +4,26 @@ function Livro(id, nome, autores, estilo){
 	this.nome = nome;
 	this.autores = autores;
 	this.estilo = estilo;
+	var object = {id, nome, autores, estilo};
+	adicionarLivro(object);
 }
 
 // programar a inserção dos novos livros no array listaLivros e sua adição no DOM
 function adicionarLivro(livro){
-// seu programa aqui.
+	var count = 0;
+	listaLivros[count] = livro;
+	count++;
 }
 
 // programar a remoção do livro no array listaLivros e sua remoção no DOM
 function removerLivro(livro){
-// seu programa aqui.
+	
 }
 
 var listaLivros = [];
 		
 $(function(){
-//TESTE
+
 	$("#adicionar").click(function(){
 		var tituloLivro = $("#titulo").val();
 		var autores = $("#autores").val();
