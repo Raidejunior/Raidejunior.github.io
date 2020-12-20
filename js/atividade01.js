@@ -19,7 +19,7 @@ function removerLivro(livro){
 var listaLivros = [];
 		
 $(function(){
-
+//TESTE
 	$("#adicionar").click(function(){
 		var tituloLivro = $("#titulo").val();
 		var autores = $("#autores").val();
