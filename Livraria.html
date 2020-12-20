@@ -40,10 +40,6 @@
 
 <script>
 
-	import java.util.ArrayList;
-	import java.util.Iterator;
-	import java.util.Scanner;
-
 	var $btnadicionar = document.querySelector('#adicionar');
 	var $btnexcluir = document.querySelector('#excluir');
 
@@ -68,7 +64,8 @@ function removerLivro(livro){
 }
 
 var listaLivros = [];
-	
+		
+$(function(){
 
 	$("#adicionar").click(function(){
 		var tituloLivro = $("#titulo").val();
@@ -113,5 +110,6 @@ var listaLivros = [];
 						.append($("<th>").text(""))
 					)
 	})
+});
 
 </script>
