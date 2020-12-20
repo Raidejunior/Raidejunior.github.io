@@ -17,7 +17,7 @@ function adicionarLivro(livro){
 
 // programar a remoção do livro no array listaLivros e sua remoção no DOM
 function removerLivro(livro){
-	
+
 }
 
 var listaLivros = [];
@@ -28,6 +28,7 @@ $(function(){
 		var tituloLivro = $("#titulo").val();
 		var autores = $("#autores").val();
 		var estilo = $("#estilo").val();
+		var id = 0;
 		$("#acervo").append(
 				$("<tr>")
 					.append($("<td>").text(tituloLivro))
@@ -39,9 +40,11 @@ $(function(){
 								.text("Apagar"))
 					)
 		)
+		Livro(id, tituloLivro, autores, estilo);
 		$("#titulo").val("");
 		$("#autores").val("");
 		$("#estilo").val("");
+		id++;
 	});
 
 	$("#acervo").on("click", "a", function(){
