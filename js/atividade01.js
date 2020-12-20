@@ -51,9 +51,9 @@ $(function(){
 		id++;
 	});
 
-	$(document.getElementsByTagName("a").click(function(){
+	$(document.getElementsByTagName("a")).click(function(){
 		removerLivro(document.getElementById("titulo"));
-	}));
+	});
 
 
 	$("#acervo").on("click", "a", function(){
