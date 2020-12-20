@@ -11,7 +11,7 @@ function Livro(id, nome, autores, estilo){
 // programar a inserção dos novos livros no array listaLivros e sua adição no DOM
 function adicionarLivro(livro){
 	listaLivros[this.id] = livro;
-	console.log(listaLivros[count]);
+	console.log(listaLivros[this.id]);
 }
 
 // programar a remoção do livro no array listaLivros e sua remoção no DOM
