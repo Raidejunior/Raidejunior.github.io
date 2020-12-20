@@ -28,7 +28,9 @@ $(function(){
 		var tituloLivro = $("#titulo").val();
 		var autores = $("#autores").val();
 		var estilo = $("#estilo").val();
-		var x = tituloLivro.id;
+		const x = function(){
+    return Date.now().toString(36) + Math.random().toString(36).substr(2);
+}
 		$("#acervo").append(
 				$("<tr>")
 					.append($("<td>").text(tituloLivro))
