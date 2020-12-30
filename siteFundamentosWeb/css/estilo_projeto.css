@@ -23,7 +23,10 @@
 	z-index: 100;
 	right: 2rem;
 	top: 2rem;
+	display: -webkit-flex;
+	/* Safari */
 	display: flex;
+	/* Standard syntax */
 	flex-direction: column;
 	justify-content: space-evenly;
 	cursor: pointer;
@@ -60,7 +63,10 @@
 	left: 3rem;
 	height: 2rem;
 	width: 6rem;
+	display: -webkit-flex;
+	/* Safari */
 	display: flex;
+	/* Standard syntax */
 	justify-content: center;
 	align-items: center;
 	background-color: #2245e0;
@@ -123,8 +129,10 @@ header {
 
 .banner {
 	position: absolute;
-	top: 40%;
-	left: 25%;
+	top: 50%;
+	left: 50%;
+	width: 100%; /* bring your own prefixes */
+	transform: translate(-50%, -50%);
 	text-align: center;
 }
 
@@ -317,6 +325,7 @@ header {
 }
 
 .section-1 .image-section-1 ul {
+	font-family: var(--font-secundary);
 	margin-top: 1.5rem;
 }
 
@@ -368,22 +377,55 @@ header {
 /* Inicio das divs */
 
 .divs-after-sections {
-	display: -webkit-flex;
-	/* Safari */
+	display: -webkit-flex; /* Safari */
 	display: flex;
+	flex-direction: column;
 	width: 90%;
 	min-height: 65vh;
 	margin: 0 auto;
 	background-color: rgba(81, 86, 92, 0.082);
 }
 
-.divs-after-sections h3 {
+.divs-after-sections .divs {
+	display: -webkit-flex; /* Safari */
+	display: flex;
+}
+
+.divs-after-sections .buttons-divs-after-section {
+	display: -webkit-flex; /* Safari */
+	display: flex;
+	width: 100%;
+}
+
+.divs-after-sections .buttons-divs-after-section div {
+	-webkit-flex: 0.33; /* Safari */
+	-ms-flex: 0.33; /* IE 10 */
+	flex: 0.33; /* Standard syntax */
+}
+
+.divs-after-sections .divs h3 {
+	font-family: var(--font-primary);
 	margin-bottom: 2.5rem;
 	text-transform: uppercase;
 }
 
 .divs-after-sections p {
+	font-family: var(--font-secundary);
 	margin-top: 1.5rem;
+}
+
+
+.divs-after-sections .button-1 {
+	margin-right: 2.5rem;
+	padding-left: 5rem;
+}
+
+.divs-after-sections .button-2 {
+	margin-right: 2.5rem;
+}
+
+.divs-after-sections .button-3 {
+	padding-right: 5rem;
 }
 
 .divs-after-sections button {
@@ -391,6 +433,7 @@ header {
 	color: #ffffff;
 	letter-spacing: .1rem;
 	margin-top: 3rem;
+	margin-bottom: 3rem;
 	padding: 1rem 3rem;
 	border: none;
 	border-radius: 200px;
@@ -410,48 +453,35 @@ header {
 	object-fit: cover;
 }
 
-.div-1-after-sections {
+.divs-after-sections .divs div {
 	margin-top: 0.5rem;
-	margin-right: 2.5rem;
 	padding-top: 3.5rem;
-	padding-left: 5rem;
 	-webkit-flex: 0.33;
 	/* Safari */
 	-ms-flex: 0.33;
 	/* IE 10 */
 	flex: 0.33;
 	/* Standard syntax */
+}
+
+.div-1-after-sections {
+	margin-right: 2.5rem;
+	padding-left: 5rem;
 }
 
 .div-2-after-sections {
-	margin-top: 0.5rem;
 	margin-right: 2.5rem;
-	padding-top: 3.5rem;
-	-webkit-flex: 0.33;
-	/* Safari */
-	-ms-flex: 0.33;
-	/* IE 10 */
-	flex: 0.33;
-	/* Standard syntax */
 }
 
 .div-3-after-sections {
-	margin-top: 0.5rem;
-	padding-top: 3.5rem;
 	padding-right: 5rem;
-	-webkit-flex: 0.33;
-	/* Safari */
-	-ms-flex: 0.33;
-	/* IE 10 */
-	flex: 0.33;
-	/* Standard syntax */
 }
 
 /* Fim das divs */
 
 /* Inicio footer */
 
-.footer-after-divs .ul-footer-after-divs{
+.footer-after-divs .ul-footer-after-divs {
 	display: -webkit-flex;
 	/* Safari */
 	display: flex;
@@ -462,29 +492,30 @@ header {
 	background-color: rgba(0, 0, 0, 0.89);
 }
 
-.ul-footer-after-divs div h3{
+.ul-footer-after-divs div h3 {
+	font-family: var(--font-primary);
 	color: #ffffff;
 	margin-bottom: 2.5rem;
 	text-transform: uppercase;
 }
 
-.ul-footer-after-divs div li{
+.ul-footer-after-divs div li {
+	font-family: var(--font-secundary);
 	margin-top: 1rem;
 	padding-bottom: 1rem;
 	border-bottom: 1px solid rgb(139, 139, 139);
 }
 
-.ul-footer-after-divs div .last-li-div-1{
+.ul-footer-after-divs div .last-li-div-1 {
 	border: none;
 }
 
-
-.ul-footer-after-divs div li a{
+.ul-footer-after-divs div li a {
 	color: rgb(139, 139, 139);
 }
 
-.footer-after-divs .ul-footer-after-divs .div-1-ul{
-	width:100%;
+.footer-after-divs .ul-footer-after-divs .div-1-ul {
+	width: 100%;
 	margin-top: 2rem;
 	margin-right: 2.5rem;
 	padding-top: 3.5rem;
@@ -497,8 +528,8 @@ header {
 	/* Standard syntax */
 }
 
-.footer-after-divs .ul-footer-after-divs .div-2-ul{
-	width:100%;
+.footer-after-divs .ul-footer-after-divs .div-2-ul {
+	width: 100%;
 	margin-top: 2rem;
 	margin-right: 2.5rem;
 	padding-top: 3.5rem;
@@ -510,8 +541,8 @@ header {
 	/* Standard syntax */
 }
 
-.footer-after-divs .ul-footer-after-divs .div-3-ul{
-	width:100%;
+.footer-after-divs .ul-footer-after-divs .div-3-ul {
+	width: 100%;
 	margin-top: 2rem;
 	margin-right: 2.5rem;
 	padding-top: 3.5rem;
@@ -523,3 +554,9 @@ header {
 	flex: 0.33;
 	/* Standard syntax */
 }
+
+/* Fim do footer */
+
+/* Inicio responsividade */
+
+@media screen and (max-width: 1043px) {}
