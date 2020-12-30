@@ -16,7 +16,6 @@
 /* Inicio do header e menu lateral */
 
 .hamburguer {
-	/* background-color: red; */
 	width: 2rem;
 	height: 2rem;
 	position: fixed;
@@ -69,7 +68,7 @@
 	/* Standard syntax */
 	justify-content: center;
 	align-items: center;
-	background-color: #2245e0;
+	background-color: #1b19b3;
 	color: #ffffff;
 	font-family: var(--font-action);
 	opacity: 0;
@@ -79,7 +78,7 @@
 .hamburguer span::before {
 	content: "";
 	position: absolute;
-	border-right: .5rem solid #2245e0;
+	border-right: .5rem solid #1b19b3;
 	border-top: .5rem solid transparent;
 	border-left: .5rem solid transparent;
 	border-bottom: .5rem solid transparent;
@@ -131,7 +130,8 @@ header {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	width: 100%; /* bring your own prefixes */
+	width: 100%;
+	/* bring your own prefixes */
 	transform: translate(-50%, -50%);
 	text-align: center;
 }
@@ -171,15 +171,12 @@ header {
 	color: #ffffff;
 	letter-spacing: .1rem;
 	text-transform: uppercase;
-	background: #0052D4;
-	/* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #2245e0, #bb3a20);
-	/* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #2245e0, #bb3a20);
-	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: #1a2a6c; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #bb3a20, #bb3a20, #1b19b3); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #bb3a20, #bb3a20, #1b19b3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	padding: 0.8rem 2.8rem;
 	border: none;
-	border-radius: 8px;
+	border-radius: 20px; /* 	#2245e0, #bb3a20  */
 	cursor: pointer;
 	opacity: 0;
 	animation: moveBanner 1s 0.9s forwards;
@@ -232,7 +229,7 @@ header {
 }
 
 .menu-link:hover {
-	color: #2245e0;
+	color: #1b19b3;
 }
 
 .social-media {
@@ -244,7 +241,7 @@ header {
 }
 
 .social-media i {
-	background-color: #2245e0;
+	background-color: #bb3a20;
 	color: rgba(255, 255, 255, 1);
 	height: 2.5rem;
 	width: 2.5rem;
@@ -257,7 +254,7 @@ header {
 }
 
 .social-media i:hover {
-	background-color: #bb3a20;
+	background-color: #1b19b3;
 }
 
 /* Fim do header e menu lateral. */
@@ -377,7 +374,8 @@ header {
 /* Inicio das divs */
 
 .divs-after-sections {
-	display: -webkit-flex; /* Safari */
+	display: -webkit-flex;
+	/* Safari */
 	display: flex;
 	flex-direction: column;
 	width: 90%;
@@ -387,33 +385,86 @@ header {
 }
 
 .divs-after-sections .divs {
-	display: -webkit-flex; /* Safari */
+	display: -webkit-flex;
+	/* Safari */
+	display: flex;
+	flex-direction: column;
+}
+
+.divs-after-sections .divs .h3-divs {
+	margin-top: 0.5rem;
+	padding-top: 3.5rem;
+	display: -webkit-flex;
+	/* Safari */
 	display: flex;
 }
 
+.divs-after-sections .divs .h3-divs div {
+	-webkit-flex: 0.33;
+	/* Safari */
+	-ms-flex: 0.33;
+	/* IE 10 */
+	flex: 0.33;
+	/* Standard syntax */
+}
+
+.divs-after-sections .divs .h3-1 {
+	margin-right: 2.5rem;
+	padding-left: 5rem;
+}
+
+.divs-after-sections .divs .h3-2 {
+	margin-right: 2.5rem;
+}
+
+.divs-after-sections .divs .h3-3 {
+	padding-right: 5rem;
+}
+
+.divs-after-sections .divs .img-p-divs {
+	display: -webkit-flex;
+	/* Safari */
+	display: flex;
+	width: 100%;
+}
+
+.divs-after-sections .divs .img-p-divs div {
+	-webkit-flex: 0.33;
+	/* Safari */
+	-ms-flex: 0.33;
+	/* IE 10 */
+	flex: 0.33;
+	/* Standard syntax */
+}
+
 .divs-after-sections .buttons-divs-after-section {
-	display: -webkit-flex; /* Safari */
+	display: -webkit-flex;
+	/* Safari */
 	display: flex;
 	width: 100%;
 }
 
 .divs-after-sections .buttons-divs-after-section div {
-	-webkit-flex: 0.33; /* Safari */
-	-ms-flex: 0.33; /* IE 10 */
-	flex: 0.33; /* Standard syntax */
+	-webkit-flex: 0.33;
+	/* Safari */
+	-ms-flex: 0.33;
+	/* IE 10 */
+	flex: 0.33;
+	/* Standard syntax */
 }
 
 .divs-after-sections .divs h3 {
 	font-family: var(--font-primary);
+	width: 95%;
 	margin-bottom: 2.5rem;
 	text-transform: uppercase;
 }
 
 .divs-after-sections p {
 	font-family: var(--font-secundary);
+	width: 95%;
 	margin-top: 1.5rem;
 }
-
 
 .divs-after-sections .button-1 {
 	margin-right: 2.5rem;
@@ -439,9 +490,9 @@ header {
 	border-radius: 200px;
 	background: #f12711;
 	/* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #f5af19, #f12711);
+	background: -webkit-linear-gradient(to left, #bb3a20, #1b19b3);
 	/* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #f5af19, #f12711);
+	background: linear-gradient(to left, #bb3a20, #bb3a20, #1b19b3);
 	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	cursor: pointer;
 }
@@ -451,17 +502,6 @@ header {
 	height: 20vh;
 	object-position: center;
 	object-fit: cover;
-}
-
-.divs-after-sections .divs div {
-	margin-top: 0.5rem;
-	padding-top: 3.5rem;
-	-webkit-flex: 0.33;
-	/* Safari */
-	-ms-flex: 0.33;
-	/* IE 10 */
-	flex: 0.33;
-	/* Standard syntax */
 }
 
 .div-1-after-sections {
