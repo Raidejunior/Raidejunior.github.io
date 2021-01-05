@@ -254,7 +254,7 @@ header {
 }
 
 .social-media i:hover {
-	background-color: #1b19b3;
+	opacity: 0.8;
 }
 
 /* Fim do header e menu lateral. */
