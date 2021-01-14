@@ -1,0 +1,25 @@
+{
+  "name": "raidejunior.github.io",
+  "version": "1.0.0",
+  "description": "O controle dessas tarefas será realizado no Github",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raidejunior/Raidejunior.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Raidejunior/Raidejunior.github.io/issues"
+  },
+  "homepage": "https://github.com/Raidejunior/Raidejunior.github.io#readme",
+  "dependencies": {
+    "@popperjs/core": "^2.6.0",
+    "bootstrap": "^5.0.0-beta1",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
+  }
+}
