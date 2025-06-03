@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descomplicando o Tempo - Jogo de Tabuleiro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">Descomplicando o Tempo</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#techniques">Técnicas</a></li>
+                <li><a href="#rules">Regras do Jogo</a></li>
+                <li><a href="#cards">Cartas</a></li>
+                <li><a href="#about">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Aprenda a Gerir Seu Tempo de Forma Lúdica!</h1>
+            <p>Descubra as técnicas Pomodoro, GTD e SMART e divirta-se colocando-as em prática com nosso jogo de tabuleiro.</p>
+            <button class="cta-button" onclick="scrollToSection('rules')">Comece a Jogar</button>
+        </div>
+        <div class="hero-image"></div>
+    </section>
+
+    <!-- Techniques Section -->
+    <section id="techniques" class="techniques">
+        <h2 class="section-title">Técnicas de Gestão do Tempo</h2>
+        <div class="techniques-container">
+            <div class="technique-tabs">
+                <button class="tab-button active" onclick="showTechnique('pomodoro')">Pomodoro</button>
+                <button class="tab-button" onclick="showTechnique('gtd')">GTD</button>
+                <button class="tab-button" onclick="showTechnique('smart')">SMART</button>
+            </div>
+
+            <!-- Pomodoro Content -->
+            <div id="pomodoro" class="technique-content active">
+                <h3>Técnica Pomodoro</h3>
+                <div class="technique-grid">
+                    <div>
+                        <p>O método Pomodoro divide seu tempo em blocos de 25 minutos de trabalho focado, intercalados por pausas curtas. A cada quatro ciclos, uma pausa mais longa ajuda a manter a produtividade.</p>
+                        
+                        <div style="margin-top: 20px;">
+                            <h4>✅ Benefícios:</h4>
+                            <ul>
+                                <li>Concentração aprimorada</li>
+                                <li>Controle de tempo evidente</li>
+                                <li>Equilíbrio entre foco e descanso</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-top: 20px;">
+                            <h4>💡 Dicas de Implementação:</h4>
+                            <ul>
+                                <li>Use um timer físico ou aplicativo gratuito</li>
+                                <li>Mantenha distrações longe (modo "Não Perturbe")</li>
+                                <li>Para cada Pomodoro, priorize a tarefa mais importante</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="pomodoro-timer">
+                        <div class="timer-display" id="timerDisplay">25:00</div>
+                        <div class="timer-buttons">
+                            <button class="timer-btn" onclick="startTimer(25)">Pomodoro (25:00)</button>
+                            <button class="timer-btn" onclick="startTimer(5)">Pausa Curta (5:00)</button>
+                            <button class="timer-btn" onclick="startTimer(15)">Pausa Longa (15:00)</button>
+                            <button class="timer-btn" onclick="resetTimer()">Reiniciar</button>
+                        </div>
+                        <div class="pomodoro-count">Pomodoros Concluídos: <span id="pomodoroCount">0</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GTD Content -->
+            <div id="gtd" class="technique-content">
+                <h3>Getting Things Done (GTD)</h3>
+                <p>GTD é um sistema que organiza suas tarefas em cinco fases: Capturar, Esclarecer, Organizar, Refletir e Engajar, garantindo clareza mental e fluxo de trabalho eficiente.</p>
+                
+                <div class="gtd-diagram">
+                    <div class="gtd-circle">
+                        <div class="gtd-phases">
+                            <div class="gtd-phase" onclick="showGTDPhase('Capturar', 'Anote tudo o que vier à mente (apps, caderno, post-its)')">Capturar</div>
+                            <div class="gtd-phase" onclick="showGTDPhase('Esclarecer', 'Pergunte-se: Precisa agir? Se sim, qual a próxima ação?')">Esclarecer</div>
+                            <div class="gtd-phase" onclick="showGTDPhase('Organizar', 'Classifique em listas (Projeto, Próximas Ações, Aguardando Terceiros etc.)')">Organizar</div>
+                            <div class="gtd-phase" onclick="showGTDPhase('Refletir', 'Revise seu sistema semanalmente para manter tudo atualizado')">Refletir</div>
+                            <div class="gtd-phase" onclick="showGTDPhase('Engajar', 'Escolha a tarefa certa para o contexto, tempo e energia disponíveis')">Engajar</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px;">
+                    <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                        <h4>🎓 Estudante Universitário</h4>
+                        <p>Captura ideias de TCC → Organização por disciplinas → Engajamento nos estudos</p>
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                        <h4>💻 Profissional de TI</h4>
+                        <p>Captura bugs e funcionalidades → Organiza no Kanban → Reflete no stand-up semanal</p>
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                        <h4>🚀 Empreendedor</h4>
+                        <p>Captura ideias de negócio → Organiza em projetos → Prioriza ações diárias</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SMART Content -->
+            <div id="smart" class="technique-content">
+                <h3>Metas SMART</h3>
+                <div class="technique-grid">
+                    <div>
+                        <p>SMART é um acrônimo para Specific (Específico), Measurable (Mensurável), Achievable (Atingível), Relevant (Relevante) e Time-bound (Temporal). Ele ajuda a estruturar metas claras e realistas.</p>
+                        
+                        <div style="margin-top: 30px;">
+                            <h4>Importância das Metas SMART:</h4>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px;">
+                                <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                                    <div style="font-size: 24px; margin-bottom: 10px;">🎯</div>
+                                    <strong>Clareza de propósito</strong>
+                                </div>
+                                <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                                    <div style="font-size: 24px; margin-bottom: 10px;">📊</div>
+                                    <strong>Facilidade de acompanhamento</strong>
+                                </div>
+                                <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                                    <div style="font-size: 24px; margin-bottom: 10px;">⏳</div>
+                                    <strong>Comprometimento com prazos</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="smart-generator">
+                        <h4>Gerador de Metas SMART</h4>
+                        <div class="smart-field">
+                            <label><strong>S</strong> - Específico: <span style="cursor: help;" title="O que você quer alcançar?">❓</span></label>
+                            <input type="text" id="specific" placeholder="O que você quer alcançar?">
+                        </div>
+                        <div class="smart-field">
+                            <label><strong>M</strong> - Mensurável: <span style="cursor: help;" title="Como você vai medir seu progresso?">❓</span></label>
+                            <input type="text" id="measurable" placeholder="Como você vai medir seu progresso?">
+                        </div>
+                        <div class="smart-field">
+                            <label><strong>A</strong> - Atingível: <span style="cursor: help;" title="Quais recursos você tem para isso?">❓</span></label>
+                            <input type="text" id="achievable" placeholder="Quais recursos você tem para isso?">
+                        </div>
+                        <div class="smart-field">
+                            <label><strong>R</strong> - Relevante: <span style="cursor: help;" title="Por que é importante para você?">❓</span></label>
+                            <input type="text" id="relevant" placeholder="Por que é importante para você?">
+                        </div>
+                        <div class="smart-field">
+                            <label><strong>T</strong> - Temporal: <span style="cursor: help;" title="Qual prazo para concluir?">❓</span></label>
+                            <input type="text" id="timebound" placeholder="Qual prazo para concluir?">
+                        </div>
+                        <button class="cta-button" onclick="generateSMART()" style="width: 100%; margin-top: 20px;">Gerar Meta SMART</button>
+                        <div class="smart-result" id="smartResult"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Rules Section -->
+    <section id="rules" class="game-rules">
+        <div class="rules-container">
+            <h2 class="section-title">Regras do Jogo</h2>
+            
+            <div class="rules-grid">
+                <div class="rule-card">
+                    <h3>🎯 Objetivo</h3>
+                    <p>O objetivo do jogo é ensinar e exercitar técnicas de gestão do tempo enquanto os jogadores competem para organizar tarefas e equilibrar quatro áreas: Educação (azul), Saúde (verde), Pessoal (laranja) e Social (roxo).</p>
+                </div>
+                
+                <div class="rule-card">
+                    <h3>🧭 Preparação Inicial</h3>
+                    <ul>
+                        <li>Cada jogador escolhe um peão e o posiciona na casa inicial (Tomate Pomodoro)</li>
+                        <li>Recebem: 160 fichas (1 ficha = 6 minutos; total = 16h de "dia útil")</li>
+                        <li>1 Carta de Tarefa e 3 Cartas de Gestão do Tempo</li>
+                        <li>Embaralham-se separadamente os dois baralhos</li>
+                    </ul>
+                </div>
+                
+                <div class="rule-card">
+                    <h3>🔁 Turno do Jogador</h3>
+                    <ol>
+                        <li>Rolar o dado → Avançar no tabuleiro</li>
+                        <li>Executar efeito da casa</li>
+                        <li>Executar obrigatoriamente 1 tarefa (exceto em Baú ou Relógio)</li>
+                        <li>Comprar obrigatoriamente 1 Carta de Tarefa (exceto em Baú/Relógio)</li>
+                    </ol>
+                </div>
+                
+                <div class="rule-card">
+                    <h3>🏆 Condições de Vitória</h3>
+                    <p><strong>Vitória Automática:</strong> Ao passar novamente pelo Tomate Pomodoro sem nenhuma Carta de Tarefa na mão.</p>
+                    <p><strong>Vitória por Pontuação:</strong> Após 10 rodadas, vence quem tiver a maior pontuação final (fichas restantes - custo das tarefas não concluídas).</p>
+                </div>
+                
+                <div class="rule-card">
+                    <h3>📝 Regras Gerais</h3>
+                    <ul>
+                        <li>É obrigatório executar ao menos 1 tarefa por rodada (exceto em Relógio e Baú)</li>
+                        <li>Tarefas urgentes NÃO podem ser delegadas</li>
+                        <li>Máximo de 1 Carta de Tarefa na mão e máximo de 3 Cartas de Gestão do Tempo simultaneamente</li>
+                        <li>Ao completar uma volta no tabuleiro, o jogador recebe +160 fichas (novo "dia útil")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Houses Section -->
+    <section id="houses" class="special-houses">
+        <h2 class="section-title">Casas Especiais do Tabuleiro</h2>
+        <div class="houses-carousel">
+            <div class="carousel-container" id="housesCarousel">
+                <div class="house-slide">
+                    <div class="house-icon">⏰</div>
+                    <h3>Relógio</h3>
+                    <p>Nesta casa, o jogador não pode executar tarefas nesta rodada e não compra carta de tarefa. Pode CEDER (delegar) uma tarefa (simples ou importante) a outro jogador.</p>
+                </div>
+                
+                <div class="house-slide">
+                    <div class="house-icon">🎁</div>
+                    <h3>Baú</h3>
+                    <p>O jogador não é obrigado a executar tarefas e não precisa comprar carta de tarefa nesta rodada. Pode escolher comprar 1 Carta de Gestão do Tempo extra.</p>
+                </div>
+                
+                <div class="house-slide">
+                    <div class="house-icon">💀</div>
+                    <h3>Caveira</h3>
+                    <p>O jogador deve comprar até 3 Cartas de Tarefa OU até VIR UMA carta de cor igual à cor da caveira em que caiu. Cada carta comprada deve ser mostrada aos outros jogadores.</p>
+                </div>
+                
+                <div class="house-slide">
+                    <div class="house-icon">💡</div>
+                    <h3>Casa de Técnica</h3>
+                    <p>O jogador pode comprar 1 Carta de Gestão do Tempo. Não compra Carta de Tarefa nesta rodada.</p>
+                </div>
+                
+                <div class="house-slide">
+                    <div class="house-icon">🟦</div>
+                    <h3>Casas Coloridas</h3>
+                    <p>Ao cair em casa de cor específica (Azul=Educação, Verde=Saúde, Laranja=Pessoal, Roxo=Social), o jogador tem desconto de 5 pontos ao executar tarefas da mesma cor na rodada.</p>
+                </div>
+            </div>
+            
+            <div class="carousel-nav">
+                <button class="carousel-btn" onclick="moveCarousel('houses', -1)">‹ Anterior</button>
+                <button class="carousel-btn" onclick="moveCarousel('houses', 1)">Próxima ›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cards Section -->
+    <section id="cards" class="cards-section">
+        <h2 class="section-title">Cartas em Destaque</h2>
+        <div class="cards-carousel">
+            <div class="card-item" onclick="showCardDetails('Entrada Rápida', 'Escolha até 2 tarefas urgentes da sua mão. Você pode realizá-las nesta rodada com 20 pontos de desconto cada.')">
+                <img 
+                    src="imagens/entrada-rapida.png" 
+                    alt="Entrada Rápida" 
+                    class="card__illustration" 
+                />
+                <div class="card-image">⚡</div>
+                <h3>Entrada Rápida</h3>
+            </div>
+            
+            <div class="card-item" onclick="showCardDetails('Delegar é Poder', 'Delegue uma tarefa simples a outro jogador. Você marca os pontos dela até 30 no máximo, o outro jogador recebe 1 carta de gestão como bônus.')">
+                <img 
+                    src="imagens/Delegar é Poder.png" 
+                    alt="Delegar é Poder" 
+                    class="card__illustration" 
+                />
+                <div class="card-image">🤝</div>
+                <h3>Delegar é Poder</h3>
+            </div>
+            
+            <div class="card-item" onclick="showCardDetails('Próxima Ação', 'Se você fizer uma tarefa do mesmo tipo que o jogador anterior fez (saúde, social, etc.), a tarefa não terá custo.')">
+                <img 
+                    src="imagens/Próxima Ação.png" 
+                    alt="Próxima Ação" 
+                    class="card__illustration" 
+                />
+                <div class="card-image">➡️</div>
+                <h3>Próxima Ação</h3>
+            </div>
+            
+            <div class="card-item" onclick="showCardDetails('Revisão Semanal', 'Olhe as 4 próximas cartas de tarefa do baralho. Escolha qualquer uma das três e reorganize as próximas na ordem que quiser.')">
+                <img 
+                    src="imagens/Revisão Semanal.png" 
+                    alt="Revisão Semanal" 
+                    class="card__illustration" 
+                />
+                <div class="card-image">📅</div>
+                <h3>Revisão Semanal</h3>
+            </div>
+            
+            <div class="card-item" onclick="showCardDetails('Contexto Favorável', 'Se executar duas tarefas do mesmo tipo (ex: duas sociais), reduza o custo da próxima tarefa em 15 pontos.')">
+                <img 
+                    src="imagens/Contexto Favorável.png" 
+                    alt="Contexto Favorável" 
+                    class="card__illustration" 
+                />
+                <div class="card-image">🎯</div>
+                <h3>Contexto Favorável</h3>
+            </div>
+            
+            <div class="card-item" onclick="showCardDetails('Definir Objetivos SMART', 'Escolha duas tarefa simples ou importante. Role o dado e multiplique o valor por 5, esse será o desconto para cada tarefa.')">
+                <img 
+                    src="imagens/Definir Objetivos SMART.png" 
+                    alt="Definir Objetivos SMART" 
+                    class="card__illustration" 
+                />
+                <div class="card-image">📋</div>
+                <h3>Definir Objetivos SMART</h3>
+            </div>
+            
+            <div class="card-item" onclick="showCardDetails('Tempo Delimitado', 'Pegue 3 cartas da sua mão e escolha 3 jogadores. Cada jogador deve escolher uma, quem escolher a de maior valor terá que ficar com ela.')">
+                <img 
+                    src="imagens/Tempo Delimitado.png" 
+                    alt="Tempo Delimitado" 
+                    class="card__illustration" 
+                />
+                <div class="card-image">⏲️</div>
+                <h3>Tempo Delimitado</h3>
+            </div>
+            
+            <div class="card-item" onclick="showCardDetails('Dividir para Conquistar', 'Escolha uma tarefa simples ou importante  de 30 pontos. Divida-a em duas mini tarefas (com custo proporcional), a serem jogadas por dois jogares de sua escolha.')">
+                <img 
+                    src="imagens/Dividir para Conquistar.png" 
+                    alt="Dividir para Conquistar" 
+                    class="card__illustration" 
+                />
+                <div class="card-image">🧩</div>
+                <h3>Dividir para Conquistar</h3>
+            </div>
+            
+            <div class="card-item" onclick="showCardDetails('Clareza e Foco', 'Jogue o dado e execute duas tarefas nessa rodada. Se o valor do dado foi par, cada tarefa terá um desconto de -10. Se o valor do dado for impar, cada tarefa terá um desconto de -20.')">
+                <img 
+                    src="imagens/Clareza e Foco.png" 
+                    alt="Clareza e Foco" 
+                    class="card__illustration" 
+                />
+                <div class="card-image">🔍</div>
+                <h3>Clareza e Foco</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Example Section -->
+    <section class="game-example" style="padding: 80px 20px; background: linear-gradient(135deg, #78C800, #5a9500); color: white;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title">🎲 Como Funciona na Prática</h2>
+            <p style="text-align: center; font-size: 20px; margin-bottom: 40px;">
+                Veja, passo a passo, como seria uma rodada de jogo, desde a compra de cartas até a resolução de tarefas e o uso inteligente de técnicas de gestão de tempo.
+            </p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; text-align: center;">
+                    <div style="font-size: 48px; margin-bottom: 15px;">🎲</div>
+                    <h3>1. Lance o Dado</h3>
+                    <p>Jogador lança o dado e avança no tabuleiro conforme o número sorteado.</p>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; text-align: center;">
+                    <div style="font-size: 48px; margin-bottom: 15px;">💡</div>
+                    <h3>2. Casa de Técnica</h3>
+                    <p>Cai na Casa de Técnica e pode comprar 1 Carta de Gestão do Tempo.</p>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; text-align: center;">
+                    <div style="font-size: 48px; margin-bottom: 15px;">📋</div>
+                    <h3>3. Execute Tarefa</h3>
+                    <p>Executa uma tarefa urgente, mostrando custo e cor aos outros jogadores.</p>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; text-align: center;">
+                    <div style="font-size: 48px; margin-bottom: 15px;">🕒</div>
+                    <h3>4. Casa de Delegação</h3>
+                    <p>Cai na casa de Delagação e pode delegar uma carta sua a outro jogador.</p>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; text-align: center;">
+                    <div style="font-size: 48px; margin-bottom: 15px;">🏆</div>
+                    <h3>5. Vitória!</h3>
+                    <p>Passa pelo Tomate Pomodoro sem cartas na mão e vence automaticamente!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section style="padding: 80px 20px; background: white;">
+        <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+            <h2 class="section-title">📂 Recursos</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px;">
+
+                <div style="background: #f8f9fa; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <div style="font-size: 48px; margin-bottom: 15px;">🖼️</div>
+                    <h3>Imagens das Cartas</h3>
+                    <p>Imagens em alta resolução das cartas (PNG) para impressão.</p>
+                    <a class="cta-button" href="arquivos/cartas.png" download style="margin-top: 15px; display: inline-block;">Download</a>
+                </div>
+
+                <div style="background: #f8f9fa; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <div style="font-size: 48px; margin-bottom: 15px;">📄</div>
+                    <h3>Regras Completas</h3>
+                    <p>Arquivo PDF com regras completas do jogo para imprimir.</p>
+                    <a class="cta-button" href="arquivos/Regras.pdf" download style="margin-top: 15px; display: inline-block;">Download</a>
+                </div>
+
+                <div style="background: #f8f9fa; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <div style="font-size: 48px; margin-bottom: 15px;">🎯</div>
+                    <h3>Tabuleiro A3</h3>
+                    <p>Tabuleiro no formato A3 para impressão caseira.</p>
+                    <a class="cta-button" href="arquivos/Tabuleiro.pdf" download style="margin-top: 15px; display: inline-block;">Download</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer id="about" class="footer">
+        <div class="footer-content">
+            <h3>Sobre o Projeto</h3>
+            <p>Descomplicando o Tempo é um jogo educativo que combina diversão e aprendizado sobre gestão do tempo.</p>
+            <p style="font-size: 14px; margin: 30px 0; color: #bbb;">© 2025 Descomplicando o Tempo – Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalContent"></p>
+        </div>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html></li>
