@@ -1,4 +1,6 @@
 /*/
+!tcc/
+!tcc/index.html
 !*.md
 !index.html
 !package*.json
