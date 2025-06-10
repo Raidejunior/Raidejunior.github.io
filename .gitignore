@@ -1,0 +1,5 @@
+/*/
+!*.md
+!index.html
+!package*.json
+!.gitignore
