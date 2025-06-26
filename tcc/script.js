@@ -110,16 +110,22 @@ function moveCarousel(type, direction) {
 }
 
 // Card details modal
-function showCardDetails(title, description) {
-    showModal(title, description);
+function showCardDetails(title, effect, justification) {
+    showModal(title, effect, justification);
 }
 
 // Modal functions
-function showModal(title, content) {
+function showModal(title, effect, justification) {
     document.getElementById('modalTitle').textContent = title;
-    document.getElementById('modalContent').textContent = content;
+
+    document.getElementById('modalContent').innerHTML = `
+        <strong>Efeito no jogo:</strong><br>${effect}<br><br>
+        <strong>Justificativa:</strong><br>${justification}
+    `;
+
     document.getElementById('modal').style.display = 'block';
 }
+
 
 function closeModal() {
     document.getElementById('modal').style.display = 'none';

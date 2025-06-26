@@ -177,15 +177,16 @@
             <div class="rules-grid">
                 <div class="rule-card">
                     <h3>🎯 Objetivo</h3>
-                    <p>O objetivo do jogo é ensinar e exercitar técnicas de gestão do tempo enquanto os jogadores competem para organizar tarefas e equilibrar quatro áreas: Educação (azul), Saúde (verde), Pessoal (laranja) e Social (roxo).</p>
-                </div>
+                    <p>O objetivo do jogo é ensinar e exercitar técnicas de gestão do tempo, enquanto os jogadores enfrentam desafios para organizar suas tarefas e equilibrar quatro áreas
+                         da vida: Educação, Saúde, Pessoal e Social, buscando sobreviver o maior tempo possível sem zerar suas fichas.</p>
+                    </div>
                 
                 <div class="rule-card">
                     <h3>🧭 Preparação Inicial</h3>
                     <ul>
                         <li>Cada jogador escolhe um peão e o posiciona na casa inicial (Tomate Pomodoro)</li>
                         <li>Recebem: 160 fichas (1 ficha = 6 minutos; total = 16h de "dia útil")</li>
-                        <li>1 Carta de Tarefa e 3 Cartas de Gestão do Tempo</li>
+                        <li>5 Cartas de Tarefa e 3 Cartas de Gestão do Tempo</li>
                         <li>Embaralham-se separadamente os dois baralhos</li>
                     </ul>
                 </div>
@@ -194,25 +195,38 @@
                     <h3>🔁 Turno do Jogador</h3>
                     <ol>
                         <li>Rolar o dado → Avançar no tabuleiro</li>
-                        <li>Executar efeito da casa</li>
-                        <li>Executar obrigatoriamente 1 tarefa (exceto em Baú ou Relógio)</li>
-                        <li>Comprar obrigatoriamente 1 Carta de Tarefa (exceto em Baú/Relógio)</li>
+                        <li>Executar efeito da casa onde caiu (ver “Casas Especiais”)</li>
+                        <li>Executar obrigatoriamente ao menos 1 tarefa, exceto se cair em uma das casas de descanso</li>
+                        <li>Antes de jogar no turno, o jogador deve <strong>comprar obrigatoriamente 1 nova carta de tarefa</strong>, exceto se cair em uma das casas de descanso</li>
                     </ol>
                 </div>
                 
                 <div class="rule-card">
                     <h3>🏆 Condições de Vitória</h3>
-                    <p><strong>Vitória Automática:</strong> Ao passar novamente pelo Tomate Pomodoro sem nenhuma Carta de Tarefa na mão.</p>
-                    <p><strong>Vitória por Pontuação:</strong> Após 10 rodadas, vence quem tiver a maior pontuação final (fichas restantes - custo das tarefas não concluídas).</p>
+                    <h4>🥇 Vitória por Eliminação (Mata-mata)</h4>
+                    <p>O jogo segue um modelo de <strong>sobrevivência</strong>. A cada rodada, os jogadores executam tarefas, lidam com imprevistos e utilizam suas fichas. Quando um jogador atinge <strong>0 fichas</strong>, ele é <strong>eliminado do jogo</strong>.</p>
+                    <ul>
+                        <li>Vence o jogador que <strong>permanecer ativo por mais tempo</strong>, ou seja, <strong>o último a ser eliminado</strong>.</li>
+                    </ul>
                 </div>
                 
                 <div class="rule-card">
                     <h3>📝 Regras Gerais</h3>
                     <ul>
-                        <li>É obrigatório executar ao menos 1 tarefa por rodada (exceto em Relógio e Baú)</li>
-                        <li>Tarefas urgentes NÃO podem ser delegadas</li>
-                        <li>Máximo de 1 Carta de Tarefa na mão e máximo de 3 Cartas de Gestão do Tempo simultaneamente</li>
-                        <li>Ao completar uma volta no tabuleiro, o jogador recebe +160 fichas (novo "dia útil")</li>
+                        <li>É <strong>obrigatório executar ao menos 1 tarefa por rodada</strong>, exceto nas casas de descanso.</li>
+                        <li>
+                            Cada casa não especial representa um tipo (cor). Ao cair nessa casa, o jogador terá <strong>desconto de 5 pontos</strong> na realização das tarefas do mesmo tipo.
+                        </li>
+                        <li>Tarefas <strong>urgentes não podem ser delegadas</strong>.</li>
+                        <li>Só é possível ter até:
+                            <ul>
+                                <li><strong>4 cartas de gestão do tempo</strong></li>
+                            </ul>
+                        </li>
+                        <li>Ao completar uma volta no tabuleiro, o jogador recebe <strong>+160 fichas</strong> (novo “dia”).</li>
+                        <li>Cartas de gestão que permitem o jogador andar alguma casa <strong>não removem as consequências</strong> de cair na mesma.</li>
+                        <li>Cartas de gestão de tempo podem ser <strong>usadas apenas 1 vez por rodada</strong>.</li>
+                        <li>Casas <strong>de descanso</strong> são as únicas onde o jogador <strong>não é obrigado a executar uma tarefa</strong>.</li>
                     </ul>
                 </div>
             </div>
@@ -225,27 +239,31 @@
         <div class="houses-carousel">
             <div class="carousel-container" id="housesCarousel">
                 <div class="house-slide">
-                    <div class="house-icon">⏰</div>
-                    <h3>Relógio</h3>
-                    <p>Nesta casa, o jogador não pode executar tarefas nesta rodada e não compra carta de tarefa. Pode CEDER (delegar) uma tarefa (simples ou importante) a outro jogador.</p>
+                    <div class="house-icon">🤝</div>
+                    <h3>Delegação</h3>
+                    <p>O jogador deve executar uma tarefa normalmente e comprar uma carta de tarefa. Após isso,
+                         compra uma nova carta de tarefa e pode delegá-la imediatamente a outro jogador,
+                          que decide se guarda ou executa.</p>
                 </div>
                 
                 <div class="house-slide">
                     <div class="house-icon">🎁</div>
                     <h3>Baú</h3>
-                    <p>O jogador não é obrigado a executar tarefas e não precisa comprar carta de tarefa nesta rodada. Pode escolher comprar 1 Carta de Gestão do Tempo extra.</p>
+                    <p>O jogador deve executar uma tarefa normalmente e comprar uma nova carta de tarefa.
+                         Pode comprar 1 Carta de Gestão do Tempo extra.</p>
                 </div>
                 
                 <div class="house-slide">
                     <div class="house-icon">💀</div>
                     <h3>Caveira</h3>
-                    <p>O jogador deve comprar até 3 Cartas de Tarefa OU até VIR UMA carta de cor igual à cor da caveira em que caiu. Cada carta comprada deve ser mostrada aos outros jogadores.</p>
+                    <p>O jogador deve comprar cartas de tarefa até vir uma da mesma cor da caveira em que
+                         caiu (sem limite de 3 cartas). Cada carta comprada deve ser mostrada aos outros jogadores.</p>
                 </div>
                 
                 <div class="house-slide">
-                    <div class="house-icon">💡</div>
-                    <h3>Casa de Técnica</h3>
-                    <p>O jogador pode comprar 1 Carta de Gestão do Tempo. Não compra Carta de Tarefa nesta rodada.</p>
+                    <div class="house-icon">☁️</div>
+                    <h3>Descanso</h3>
+                    <p>O jogador não é obrigado a realizar uma tarefa nesta rodada, não precisa comprar carta de tarefa e não pode usar cartas de gestão do tempo.</p>
                 </div>
                 
                 <div class="house-slide">
@@ -266,7 +284,8 @@
     <section id="cards" class="cards-section">
         <h2 class="section-title" style="color: white;">Cartas em Destaque</h2>
         <div class="cards-carousel">
-            <div class="card-item" onclick="showCardDetails('Entrada Rápida', 'Escolha até 2 tarefas urgentes da sua mão. Você pode realizá-las nesta rodada com 20 pontos de desconto cada.')">
+            <div class="card-item" onclick="
+                    showCardDetails('Entrada Rápida', 'Escolha até 2 tarefas urgentes da sua mão. Você pode realizá-las nesta rodada com 20 pontos de desconto cada.', 'No método GTD, a &quot;Caixa de Entrada&quot; é onde tudo que precisa ser feito é capturado rapidamente para depois ser processado. Essa carta simula a habilidade de lidar rapidamente com pendências urgentes, agilizando o fluxo de trabalho e evitando acúmulo de tarefas críticas. O desconto nos pontos representa a energia extra e o foco que conseguimos quando damos atenção imediata às prioridades.');">
                 <img 
                     src="imagens/entrada-rapida.png" 
                     alt="Entrada Rápida" 
@@ -275,86 +294,170 @@
                 <div class="card-image">⚡</div>
                 <h3>Entrada Rápida</h3>
             </div>
+
             
-            <div class="card-item" onclick="showCardDetails('Delegar é Poder', 'Delegue uma tarefa simples a outro jogador. Você marca os pontos dela até 30 no máximo, o outro jogador recebe 1 carta de gestão como bônus.')">
-                <img 
-                    src="imagens/Delegar é Poder.png" 
-                    alt="Delegar é Poder" 
-                    class="card__illustration" 
-                />
+            <div class="card-item" onclick="showCardDetails('Delegar é Poder', 'Delegue uma tarefa simples a outro jogador. Você marca os pontos dela até 30 no máximo, o outro jogador recebe 1 carta de gestão como bônus e terá de fazê-la na hora.', 'Delegar é um dos princípios essenciais do GTD e da gestão de tempo eficaz — não é preciso fazer tudo sozinho. Essa carta destaca o poder de distribuir responsabilidades, liberando seu tempo para focar em tarefas mais estratégicas. O bônus ao outro jogador simboliza o incentivo e a colaboração, mostrando que a gestão eficiente envolve também trabalho em equipe.')">
+                <img src="imagens/Delegar é Poder.png" alt="Delegar é Poder" class="card__illustration" />
                 <div class="card-image">🤝</div>
                 <h3>Delegar é Poder</h3>
             </div>
-            
-            <div class="card-item" onclick="showCardDetails('Próxima Ação', 'Se você fizer uma tarefa do mesmo tipo que o jogador anterior fez (saúde, social, etc.), a tarefa não terá custo.')">
-                <img 
-                    src="imagens/Próxima Ação.png" 
-                    alt="Próxima Ação" 
-                    class="card__illustration" 
-                />
+
+            <div class="card-item" onclick="showCardDetails('Próxima Ação', 'Se você fizer uma tarefa do mesmo tipo que o jogador anterior fez (saúde, social, etc.), a tarefa não terá custo.', 'O conceito de “Próxima Ação” do GTD incentiva a clareza sobre o próximo passo concreto a dar. Ao repetir o tipo da tarefa do jogador anterior, o jogador simula uma rotina organizada e focada em um contexto específico, o que reduz o esforço necessário para mudar de foco e aumenta a produtividade ao eliminar o custo da transição entre tipos diferentes de atividades.')">
+                <img src="imagens/Próxima Ação.png" alt="Próxima Ação" class="card__illustration" />
                 <div class="card-image">➡️</div>
                 <h3>Próxima Ação</h3>
             </div>
-            
-            <div class="card-item" onclick="showCardDetails('Revisão Semanal', 'Olhe as 4 próximas cartas de tarefa do baralho. Escolha qualquer uma das três e reorganize as próximas na ordem que quiser.')">
-                <img 
-                    src="imagens/Revisão Semanal.png" 
-                    alt="Revisão Semanal" 
-                    class="card__illustration" 
-                />
+
+            <div class="card-item" onclick="showCardDetails('Revisão Semanal', 'Olhe as 4 próximas cartas de tarefa do baralho. Escolha qualquer uma delas caso ainda não tenha comprado e reorganize as próximas na ordem que quiser.', 'A Revisão Semanal é uma pedra fundamental do GTD que garante controle e visão clara do que está por vir, possibilitando planejamento e ajuste de prioridades. Essa carta oferece ao jogador o poder de antecipar e reorganizar suas próximas ações.')">
+                <img src="imagens/Revisão Semanal.png" alt="Revisão Semanal" class="card__illustration" />
                 <div class="card-image">📅</div>
                 <h3>Revisão Semanal</h3>
             </div>
-            
-            <div class="card-item" onclick="showCardDetails('Contexto Favorável', 'Se executar duas tarefas do mesmo tipo (ex: duas sociais), reduza o custo da próxima tarefa em 15 pontos.')">
-                <img 
-                    src="imagens/Contexto Favorável.png" 
-                    alt="Contexto Favorável" 
-                    class="card__illustration" 
-                />
+
+            <div class="card-item" onclick="showCardDetails('Contexto Favorável', 'Se executar duas tarefas do mesmo tipo (ex: duas sociais), reduza o custo total em 15 pontos.', 'O GTD enfatiza a importância de trabalhar por contextos, agrupando tarefas similares para ganhar eficiência e evitar desperdício de energia com mudanças constantes. Essa carta recompensa o jogador que organiza suas ações em blocos coerentes.')">
+                <img src="imagens/Contexto Favorável.png" alt="Contexto Favorável" class="card__illustration" />
                 <div class="card-image">🎯</div>
                 <h3>Contexto Favorável</h3>
             </div>
-            
-            <div class="card-item" onclick="showCardDetails('Definir Objetivos SMART', 'Escolha duas tarefa simples ou importante. Role o dado e multiplique o valor por 5, esse será o desconto para cada tarefa.')">
-                <img 
-                    src="imagens/Definir Objetivos SMART.png" 
-                    alt="Definir Objetivos SMART" 
-                    class="card__illustration" 
-                />
+
+            <div class="card-item" onclick="showCardDetails('Definir Objetivos SMART', 'Escolha duas tarefa simples ou importante. Role o dado e multiplique o valor por 5, esse será o desconto para cada tarefa.', 'Definir objetivos SMART exige que eles sejam específicos e mensuráveis. Essa carta representa a clareza e objetividade na definição das tarefas, refletida no desconto que pode variar, simbolizando que metas bem definidas facilitam a execução.')">
+                <img src="imagens/Definir Objetivos SMART.png" alt="Definir Objetivos SMART" class="card__illustration" />
                 <div class="card-image">📋</div>
                 <h3>Definir Objetivos SMART</h3>
             </div>
-            
-            <div class="card-item" onclick="showCardDetails('Tempo Delimitado', 'Pegue 3 cartas da sua mão e escolha 3 jogadores. Cada jogador deve escolher uma, quem escolher a de maior valor terá que ficar com ela.')">
-                <img 
-                    src="imagens/Tempo Delimitado.png" 
-                    alt="Tempo Delimitado" 
-                    class="card__illustration" 
-                />
-                <div class="card-image">⏲️</div>
-                <h3>Tempo Delimitado</h3>
-            </div>
-            
-            <div class="card-item" onclick="showCardDetails('Dividir para Conquistar', 'Escolha uma tarefa simples ou importante  de 30 pontos. Divida-a em duas mini tarefas (com custo proporcional), a serem jogadas por dois jogares de sua escolha.')">
-                <img 
-                    src="imagens/Dividir para Conquistar.png" 
-                    alt="Dividir para Conquistar" 
-                    class="card__illustration" 
-                />
-                <div class="card-image">🧩</div>
-                <h3>Dividir para Conquistar</h3>
-            </div>
-            
-            <div class="card-item" onclick="showCardDetails('Clareza e Foco', 'Jogue o dado e execute duas tarefas nessa rodada. Se o valor do dado foi par, cada tarefa terá um desconto de -10. Se o valor do dado for impar, cada tarefa terá um desconto de -20.')">
-                <img 
-                    src="imagens/Clareza e Foco.png" 
-                    alt="Clareza e Foco" 
-                    class="card__illustration" 
-                />
+
+            <div class="card-item" onclick="showCardDetails('Clareza e Foco', 'Jogue o dado e execute duas tarefas nessa rodada. Se o valor do dado for par, cada tarefa terá um desconto de -10. Se for ímpar, o desconto será de -20.', 'Clareza e foco são essenciais para atingir objetivos SMART. O dado traz a ideia de variabilidade no nível de foco e energia disponível, mas em ambos os casos o desconto representa o ganho obtido quando a atenção é dedicada corretamente.')">
+                <img src="imagens/Clareza e Foco.png" alt="Clareza e Foco" class="card__illustration" />
                 <div class="card-image">🔍</div>
                 <h3>Clareza e Foco</h3>
             </div>
+
+            <div class="card-item" onclick="showCardDetails('Dividir para Conquistar', 'Escolha uma tarefa simples ou importante de 20 ou 30 pontos. Divida-a em duas mini tarefas (com custo proporcional), a serem feitas imediatamente por dois jogadores de sua escolha.', 'Dividir tarefas grandes em partes menores é uma prática recomendada para manter os objetivos SMART alcançáveis e mensuráveis. Essa carta incentiva a fragmentação do trabalho, estimulando colaboração e progresso.')">
+                <img src="imagens/Dividir para Conquistar.png" alt="Dividir para Conquistar" class="card__illustration" />
+                <div class="card-image">🧩</div>
+                <h3>Dividir para Conquistar</h3>
+            </div>
+
+            <div class="card-item" onclick="showCardDetails('Prazo Definido', 'Pegue uma tarefa urgente e execute-a agora. Ganha +20 pontos de bônus.', 'Um prazo definido cria motivação e urgência para a ação. Essa carta enfatiza a importância de cumprir prazos para tarefas críticas, recompensando o jogador que consegue entregar resultados dentro do tempo esperado.')">
+                <img src="imagens/Prazo Definido.png" alt="Prazo Definido" class="card__illustration" />
+                <div class="card-image">⏰</div>
+                <h3>Prazo Definido</h3>
+            </div>
+
+            <div class="card-item" onclick="showCardDetails('Pomodoro Clássico', 'Faça duas tarefas com -10 pontos no total. Na próxima rodada, você não pega uma nova tarefa.', 'Essa carta representa o ciclo clássico do Pomodoro — trabalhar focado por um período concentrado (as duas tarefas com desconto), seguido de uma pausa (não pegar nova tarefa na rodada seguinte). Simula o equilíbrio essencial da técnica.')">
+                <img src="imagens/Pomodoro Classico.png" alt="Pomodoro Clássico" class="card__illustration" />
+                <div class="card-image">🍅</div>
+                <h3>Pomodoro Clássico</h3>
+            </div>
+
+            <div class="card-item" onclick="showCardDetails('2 Minutos', 'Delegue a outro jogador uma tarefa da sua mão.', 'Baseado na regra dos “2 minutos” do GTD, que recomenda delegar ou executar imediatamente qualquer tarefa que tome pouco tempo, essa carta incentiva a gestão eficiente e a colaboração.')">
+                <img src="imagens/2 Minutos.png" alt="2 Minutos" class="card__illustration" />
+                <div class="card-image">⏲️</div>
+                <h3>2 Minutos</h3>
+            </div>
+
+            <div class="card-item" onclick="showCardDetails('Descanso Restaurador', 'Descanse nesta rodada (não joga). Ganhe 10 pontos por cada carta de tarefa na sua mão.', 'O descanso é peça-chave no Pomodoro para renovar a energia mental. Essa carta recompensa o jogador pelo autocuidado e mostra que pausas ajudam a lidar melhor com a carga de trabalho acumulada.')">
+                <img src="imagens/Descanso Restaurador.png" alt="Descanso Restaurador" class="card__illustration" />
+                <div class="card-image">☁️</div>
+                <h3>Descanso Restaurador</h3>
+            </div>
+
+            <div class="card-item" onclick="showCardDetails('Foco Profundo', 'Role o dado. Se o valor for 6, faça qualquer tarefa sem custo. Caso contrário, ganha um desconto de 15.', 'Essa carta simboliza o estado de “fluxo” ou foco profundo, onde a concentração máxima permite executar tarefas com alta eficiência. Mesmo quando não perfeito, o foco melhora o rendimento.')">
+                <img src="imagens/Foco Profundo.png" alt="Foco Profundo" class="card__illustration" />
+                <div class="card-image">🧠</div>
+                <h3>Foco Profundo</h3>
+            </div>
+
+            <div class="card-item" onclick="showCardDetails('Técnica do Timer', 'Execute uma tarefa simples ou importante sem custo. Ande até 2 casas para frente.', 'A técnica do timer é a base do Pomodoro. Essa carta traz o benefício de completar uma tarefa sem custo e avançar no jogo, simulando o progresso acelerado que o controle de tempo proporciona.')">
+                <img src="imagens/Tecnica do Timer.png" alt="Técnica do Timer" class="card__illustration" />
+                <div class="card-image">⏳</div>
+                <h3>Técnica do Timer</h3>
+            </div>
+
+            <div class="card-item" onclick="showCardDetails('Modo Sprint', 'Faça uma tarefa com -20 de custo e delegue outra tarefa não urgente para um jogador.', 'O modo sprint representa um período intenso de produtividade focada, ao mesmo tempo que aplica a estratégia do Pomodoro de delegar tarefas menos urgentes para manter o ritmo.')">
+                <img src="imagens/Modo Sprint.png" alt="Modo Sprint" class="card__illustration" />
+                <div class="card-image">🏃‍♂️</div>
+                <h3>Modo Sprint</h3>
+            </div>
+
+            <div class="card-item" onclick="showCardDetails('Meta Quebra-Cabeça', 'Escolha uma tarefa com 30 de custo. Você pode dividi-la em até 3 subtarefas e atribuir duas delas a outros jogadores. Todas devem ser feitas imediatamente.', 'Essa carta expressa o princípio SMART de metas específicas e mensuráveis, além de dividir grandes objetivos em partes menores e manejáveis. Reforça a importância do “T” de Tempo.')">
+                <img src="imagens/Meta Quebra-Cabeca.png" alt="Meta Quebra-Cabeça" class="card__illustration" />
+                <div class="card-image">🧩</div>
+                <h3>Meta Quebra-Cabeça</h3>
+            </div>
+
+            <div class="card-item" onclick="showCardDetails('Delegação Estratégica', 'Escolha até 2 tarefas simples ou importantes da sua mão de até 20 pontos cada e delegue a outro jogador. O outro jogador recebe uma carta de gestão como bônus.', 'A &quot;Delegação Estratégica&quot; reflete o princípio do GTD de delegar tarefas simples ou operacionais sempre que possível. O bônus simboliza confiança e colaboração estratégica.')">
+                <img src="imagens/Delegacao Estrategica.png" alt="Delegação Estratégica" class="card__illustration" />
+                <div class="card-image">📤</div>
+                <h3>Delegação Estratégica</h3>
+            </div>
+
+            <div class="card-item" onclick="showCardDetails('Reunião Rápida', 'Escolha uma tarefa da sua mão e passe para um jogador. Pegue uma carta aleatória da mão do jogador que recebeu uma nova carta (Não pode ser a sua carta). A sua tarefa escolhida custará 15 pontos a menos.', 'A carta Reunião Rápida reflete o princípio do GTD de revisar e renegociar compromissos com agilidade. O desconto recebido simboliza o alívio gerado por uma delegação bem-feita.')">
+                <img src="imagens/Reuniao Rapida.png" alt="Reunião Rápida" class="card__illustration" />
+                <div class="card-image">💬</div>
+                <h3>Reunião Rápida</h3>
+            </div>
+
+            <div class="card-item" onclick="showCardDetails('Tarefa em Bloco', 'Execute 2 tarefas do mesmo tipo (social, saúde, etc). Se forem simples ou importantes, ganhe 15 pontos de desconto total e não compre uma nova tarefa nessa rodada.', 'Essa carta representa o uso do batching no GTD — agrupar tarefas semelhantes para ganhar foco e eficiência. O desconto simboliza o ganho, e a pausa na compra representa foco.')">
+                <img src="imagens/Tarefa em Bloco.png" alt="Tarefa em Bloco" class="card__illustration" />
+                <div class="card-image">📦</div>
+                <h3>Tarefa em Bloco</h3>
+            </div>
+
+            <div class="card-item" onclick="showCardDetails('Captura Rápida', 'Ao comprar uma nova carta de tarefa neste turno, você pode olhar as 3 do topo do baralho e escolher 1. As outras duas voltam para o fundo do baralho.', 'No GTD, capturar e escolher onde alocar sua atenção é essencial. Esta carta simula a ideia de selecionar a melhor tarefa para lidar naquele momento.')">
+                <img src="imagens/Captura Rápida.png" alt="Captura Rápida" class="card__illustration" />
+                <div class="card-image">🗂️</div>
+                <h3>Captura Rápida</h3>
+            </div>
+
+            <div class="card-item" onclick="showCardDetails('Sprints Pomodoro', 'Execute 2 tarefas simples ou importantes. Ao final, role o dado — ganhe esse número x5 em desconto total.', 'Desenvolve a habilidade de diferenciar tarefas essenciais daquelas que podem esperar, algo fundamental na gestão do tempo.')">
+                <img src="imagens/Sprints Pomodoro.png" alt="Sprints Pomodoro" class="card__illustration" />
+                <div class="card-image">🔥</div>
+                <h3>Sprints Pomodoro</h3>
+            </div>
+
+            <div class="card-item" onclick="showCardDetails('Meta SMART', 'Escolha uma tarefa importante. Se ela for do mesmo tipo da casa onde você está (ex: caiu na casa azul e a tarefa é de Educação), você ganha 10 pontos extras ao concluí-la.', 'Representa o conceito de metas específicas e alinhadas ao momento/contexto, que são mais fáceis de atingir e geram maior impacto.')">
+                <img src="imagens/Meta SMART.png" alt="Meta SMART" class="card__illustration" />
+                <div class="card-image">🎯</div>
+                <h3>Meta SMART</h3>
+            </div>
+
+            <div class="card-item" onclick="showCardDetails('Organização Semanal', 'Revele sua carta de tarefa atual. Se ela for importante ou urgente, você pode adiá-la para a próxima rodada sem penalização e comprar uma nova tarefa.', 'No GTD, revisar e reorganizar sua semana permite ajustar prioridades. Esta carta oferece ao jogador uma oportunidade estratégica de replanejamento.')">
+                <img src="imagens/Organização Semanal.png" alt="Organização Semanal" class="card__illustration" />
+                <div class="card-image">🗓️</div>
+                <h3>Organização Semanal</h3>
+            </div>
+
+            <div class="card-item" onclick="showCardDetails('Pomodoro Extra', 'Execute uma tarefa de qualquer tipo com 10 pontos de desconto. Após isso, você pode escolher entre: - Executar outra tarefa com 5 pontos de desconto OU - avançar 2 casas no tabuleiro.', 'Representa uma sessão de alta produtividade com foco, e a possibilidade de manter o ritmo ou “adiantar o dia”.')">
+                <img src="imagens/Pomodoro Extra.png" alt="Pomodoro Extra" class="card__illustration" />
+                <div class="card-image">⏱️</div>
+                <h3>Pomodoro Extra</h3>
+            </div>
+
+            <div class="card-item" onclick="showCardDetails('Impulso de Produtividade', 'Jogue o dado. O número que cair × 5 será o desconto total que você terá na realização de até 2 tarefas neste turno.', 'Inspirada no conceito do Pomodoro, essa carta representa um momento de foco intenso e motivação — quando o jogador entra em um “estado de fluxo”, é possível resolver várias tarefas com mais eficiência.')">
+                <img src="imagens/Impulso de Produtividade.png" alt="Impulso de Produtividade" class="card__illustration" />
+                <div class="card-image">💥</div>
+                <h3>Impulso de Produtividade</h3>
+            </div>
+
+            <div class="card-item" onclick="showCardDetails('Salva-Vidas', 'Se você cair em uma casa de caveira, poderá comprar apenas 1 carta de tarefa em vez de seguir a penalidade padrão.', 'Baseada na ideia do GTD de estar sempre preparado para o inesperado, essa carta representa uma reserva de energia ou estratégia prévia que permite lidar melhor com imprevistos.')">
+                <img src="imagens/Salva-Vidas.png" alt="Salva-Vidas" class="card__illustration" />
+                <div class="card-image">🛟</div>
+                <h3>Salva-Vidas</h3>
+            </div>
+
+            <div class="card-item" onclick="showCardDetails('Foco Emergencial', 'Permite realizar até 2 tarefas urgentes com 10 pontos de desconto cada.', 'Essa carta traz o espírito da técnica Pomodoro e também de GTD no contexto de “crises controladas”. Ao agrupar tarefas urgentes e resolvê-las de forma focada, o jogador experimenta um cenário real de pressão produtiva.')">
+                <img src="imagens/Foco Emergencial.png" alt="Foco Emergencial" class="card__illustration" />
+                <div class="card-image">🚨</div>
+                <h3>Foco Emergencial</h3>
+            </div>
+
+            <div class="card-item" onclick="showCardDetails('Controle de Crise', 'Ao realizar uma tarefa urgente, você não sofre penalidade extra de pontos neste turno.', 'Inspirada em SMART e GTD, essa carta representa o planejamento prévio de tarefas críticas. Com ela, o jogador simula um cenário onde se preparou antecipadamente para esse tipo de tarefa, evitando desgastes.')">
+                <img src="imagens/Controle de Crise.png" alt="Controle de Crise" class="card__illustration" />
+                <div class="card-image">🧯</div>
+                <h3>Controle de Crise</h3>
+            </div>
+
         </div>
     </section>
 
@@ -363,38 +466,38 @@
         <div style="max-width: 1200px; margin: 0 auto;">
             <h2 class="section-title">🎲 Como Funciona na Prática</h2>
             <p style="text-align: center; font-size: 20px; margin-bottom: 40px;">
-                Veja, passo a passo, como seria uma rodada de jogo, desde a compra de cartas até a resolução de tarefas e o uso inteligente de técnicas de gestão de tempo.
+                Veja, passo a passo, como seria uma rodada de jogo, desde o lançamento do dado até a execução de tarefas e o uso estratégico das cartas de gestão do tempo.
             </p>
-            
+
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
                 <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; text-align: center;">
                     <div style="font-size: 48px; margin-bottom: 15px;">🎲</div>
                     <h3>1. Lance o Dado</h3>
-                    <p>Jogador lança o dado e avança no tabuleiro conforme o número sorteado.</p>
+                    <p>O jogador lança o dado e avança pelo tabuleiro.</p>
                 </div>
-                
+
                 <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; text-align: center;">
-                    <div style="font-size: 48px; margin-bottom: 15px;">💡</div>
-                    <h3>2. Casa de Técnica</h3>
-                    <p>Cai na Casa de Técnica e pode comprar 1 Carta de Gestão do Tempo.</p>
+                    <div style="font-size: 48px; margin-bottom: 15px;">📥</div>
+                    <h3>2. Compre Tarefa</h3>
+                    <p>O jogador compra uma nova carta de tarefa, exceto se estiver em uma casa de descanso.</p>
                 </div>
-                
+
                 <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; text-align: center;">
-                    <div style="font-size: 48px; margin-bottom: 15px;">📋</div>
-                    <h3>3. Execute Tarefa</h3>
-                    <p>Executa uma tarefa urgente, mostrando custo e cor aos outros jogadores.</p>
+                    <div style="font-size: 48px; margin-bottom: 15px;">🧠</div>
+                    <h3>3. Efeito da Casa</h3>
+                    <p>O jogador aplica o efeito da casa onde parou (delegação, técnica, caveira, descanso etc).</p>
                 </div>
-                
+
                 <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; text-align: center;">
-                    <div style="font-size: 48px; margin-bottom: 15px;">🕒</div>
-                    <h3>4. Casa de Delegação</h3>
-                    <p>Cai na casa de Delagação e pode delegar uma carta sua a outro jogador.</p>
+                    <div style="font-size: 48px; margin-bottom: 15px;">✅</div>
+                    <h3>4. Realize uma Tarefa</h3>
+                    <p>É obrigatório realizar ao menos uma tarefa, exceto nas casas de descanso.</p>
                 </div>
-                
+
                 <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; text-align: center;">
-                    <div style="font-size: 48px; margin-bottom: 15px;">🏆</div>
-                    <h3>5. Vitória!</h3>
-                    <p>Passa pelo Tomate Pomodoro sem cartas na mão e vence automaticamente!</p>
+                    <div style="font-size: 48px; margin-bottom: 15px;">💣</div>
+                    <h3>5. Cuidado com as Fichas</h3>
+                    <p>Se o jogador ficar sem fichas, ele é eliminado. O último a permanecer vence!</p>
                 </div>
             </div>
         </div>
@@ -422,8 +525,8 @@
 
                 <div style="background: #f8f9fa; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
                     <div style="font-size: 48px; margin-bottom: 15px;">🎯</div>
-                    <h3>Tabuleiro A3</h3>
-                    <p>Tabuleiro no formato A3 para impressão caseira.</p>
+                    <h3>Tabuleiro</h3>
+                    <p>Tabuleiro para impressão caseira.</p>
                     <a class="cta-button" href="arquivos/Tabuleiro.pdf" download style="margin-top: 15px; display: inline-block;">Download</a>
                 </div>
 
@@ -452,4 +555,4 @@
 
 <script src="script.js"></script>
 </body>
-</html></li>
+</html>

@@ -519,6 +519,12 @@ body {
     position: relative;
 }
 
+.modalContent strong {
+    display: block;
+    margin-top: 10px;
+    color: #ffffff;
+}
+
 .close {
     position: absolute;
     right: 15px;
