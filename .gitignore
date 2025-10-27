@@ -1,4 +1,9 @@
-/*/
+/css/
+/imagens/
+/js/
+/livraria/
+/node_modules/
+/siteFundamentosWeb/
 !tcc/
 !tcc/index.html
 !*.md
