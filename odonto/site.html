@@ -40,7 +40,6 @@
             position: relative;
             scrollbar-width: none;
 
-            /* 👇 Adiciona espaço de segurança no rodapé da viewport */
             padding-bottom: env(safe-area-inset-bottom);
         }
 
@@ -133,7 +132,7 @@
         .play-pause-btn {
             background: rgba(255, 255, 255, 0.9);
             border: none;
-            width: 52px;   /* 👈 levemente menor para não cobrir nada */
+            width: 52px;
             height: 52px;
             border-radius: 50%;
             cursor: pointer;
@@ -480,49 +479,40 @@
         sections.forEach(section => fadeObserver.observe(section));
 
 
-        // ===== CORREÇÃO DE ALTURA REAL ROBUSTA PARA MOBILE =====
         function setRealViewportHeight() {
-            // Usa visualViewport se disponível (Safari iOS 15+, Chrome Android)
             const vh = (window.visualViewport ? window.visualViewport.height : window.innerHeight) * 0.01;
             document.documentElement.style.setProperty('--vh', `${vh}px`);
         }
 
-        // Recalcula após breve atraso (Safari demora a atualizar o viewport real)
         function debounceViewportHeight() {
             clearTimeout(window.__vhTimeout);
             window.__vhTimeout = setTimeout(setRealViewportHeight, 300);
         }
 
-        // Primeira medição
         setRealViewportHeight();
 
-        // Atualiza em eventos relevantes
         window.addEventListener('resize', debounceViewportHeight);
         window.addEventListener('orientationchange', () => {
-        // Durante rotação, o innerHeight antigo ainda é reportado por ~200ms
+
         clearTimeout(window.__vhTimeout);
             window.__vhTimeout = setTimeout(() => {
                 setRealViewportHeight();
             }, 500);
         });
 
-        // Recalcula também quando o viewport realmente muda (iOS/Android)
         if (window.visualViewport) {
         window.visualViewport.addEventListener('resize', debounceViewportHeight);
         window.visualViewport.addEventListener('scroll', debounceViewportHeight);
         }
 
-        // Garante altura correta após carregamento completo
         window.addEventListener('load', () => setTimeout(setRealViewportHeight, 200));
 
-        // ===== Neutraliza o zoom de orientação no Safari/Chrome =====
         let lastOrientation = window.orientation;
 
         window.addEventListener('orientationchange', () => {
             document.body.style.transition = 'transform 0.25s ease';
             document.body.style.transform = 'scale(1)';
 
-            // Reforça a escala correta após o navegador tentar aplicar zoom
             setTimeout(() => {
                 document.body.style.transform = '';
                 lastOrientation = window.orientation;
