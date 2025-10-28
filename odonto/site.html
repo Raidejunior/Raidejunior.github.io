@@ -480,15 +480,41 @@
         sections.forEach(section => fadeObserver.observe(section));
 
 
-        // ===== CORREÇÃO DE ALTURA REAL (INCLUINDO iPHONE SAFE AREA) =====
+        // ===== CORREÇÃO DE ALTURA REAL ROBUSTA PARA MOBILE =====
         function setRealViewportHeight() {
-            const vh = window.innerHeight * 0.01;
+            // Usa visualViewport se disponível (Safari iOS 15+, Chrome Android)
+            const vh = (window.visualViewport ? window.visualViewport.height : window.innerHeight) * 0.01;
             document.documentElement.style.setProperty('--vh', `${vh}px`);
         }
 
+        // Recalcula após breve atraso (Safari demora a atualizar o viewport real)
+        function debounceViewportHeight() {
+            clearTimeout(window.__vhTimeout);
+            window.__vhTimeout = setTimeout(setRealViewportHeight, 300);
+        }
+
+        // Primeira medição
         setRealViewportHeight();
-        window.addEventListener('resize', setRealViewportHeight);
-        window.addEventListener('orientationchange', setRealViewportHeight);
+
+        // Atualiza em eventos relevantes
+        window.addEventListener('resize', debounceViewportHeight);
+        window.addEventListener('orientationchange', () => {
+        // Durante rotação, o innerHeight antigo ainda é reportado por ~200ms
+        clearTimeout(window.__vhTimeout);
+            window.__vhTimeout = setTimeout(() => {
+                setRealViewportHeight();
+            }, 500);
+        });
+
+        // Recalcula também quando o viewport realmente muda (iOS/Android)
+        if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', debounceViewportHeight);
+        window.visualViewport.addEventListener('scroll', debounceViewportHeight);
+        }
+
+        // Garante altura correta após carregamento completo
+        window.addEventListener('load', () => setTimeout(setRealViewportHeight, 200));
+
 
     </script>
 </body>
