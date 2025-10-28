@@ -93,6 +93,7 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.3);
             z-index: 1;
+            pointer-events: none;
         }
 
         .logo-header {
@@ -122,29 +123,29 @@
 
         .video-controls {
             position: absolute;
-            bottom: 40px;
+            bottom: 0vh;
             left: 50%;
             transform: translateX(-50%);
             z-index: 2;
         }
 
+        /* Botão de play/pause */
         .play-pause-btn {
             background: rgba(255, 255, 255, 0.9);
             border: none;
-            width: 60px;
-            height: 60px;
+            width: 52px;   /* 👈 levemente menor para não cobrir nada */
+            height: 52px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
         }
 
         .play-pause-btn:hover {
-            transform: scale(1.1);
-            background: var(--white);
+            transform: scale(1.05);
         }
 
         .play-pause-btn::before {
@@ -152,9 +153,23 @@
             width: 0;
             height: 0;
             border-style: solid;
-            border-width: 10px 0 10px 18px;
+            border-width: 8px 0 8px 14px;
             border-color: transparent transparent transparent var(--primary-blue);
         }
+
+        .play-pause-btn.playing::before {
+            border: none;
+            width: 12px;
+            height: 16px;
+            background: linear-gradient(to right,
+                var(--primary-blue) 0%,
+                var(--primary-blue) 45%,
+                transparent 45%,
+                transparent 55%,
+                var(--primary-blue) 55%,
+                var(--primary-blue) 100%);
+        }
+
 
         .play-pause-btn.playing::before {
             border: none;
@@ -210,7 +225,7 @@
 
         .page-counter {
             position: fixed;
-            bottom: 30px;
+            top: 30px;
             right: 30px;
             z-index: 100;
             background: rgba(255, 255, 255, 0.9);
@@ -223,40 +238,36 @@
         }
 
         @media(min-width: 1500px) {
-        .scroll-container {
-            height: 100vh;
-            overflow-y: scroll;
-            scroll-snap-type: y mandatory;
-            scroll-behavior: smooth;
-            position: relative;
-            scrollbar-width: none;
-        }
-        .scroll-container::-webkit-scrollbar {
-            display: none;
-        }
+            .scroll-container {
+                height: 100vh;
+                overflow-y: scroll;
+                scroll-snap-type: y mandatory;
+                scroll-behavior: smooth;
+                position: relative;
+                scrollbar-width: none;
+            }
+            .scroll-container::-webkit-scrollbar {
+                display: none;
+            }
 
-        .section {
-            height: 100svh;
-            height: 100dvh;
-            height: 100vh;
-            width: 100vw;
-            scroll-snap-align: start;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            animation: fadeIn 0.8s ease-in-out forwards;
-        }
+            .section {
+                height: 100svh;
+                height: 100dvh;
+                height: 100vh;
+                width: 100vw;
+                scroll-snap-align: start;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                animation: fadeIn 0.8s ease-in-out forwards;
+            }
         }
 
         @media (max-width: 768px) {
             .logo-header {
                 top: 30px;
-            }
-
-            .video-controls {
-                bottom: 30px;
             }
 
             .play-pause-btn {
@@ -284,7 +295,7 @@
 
         .scroll-hint {
             position: absolute;
-            bottom: 20px;
+            bottom: -2.5vh;
             left: 50%;
             transform: translateX(-50%);
             z-index: 2;
@@ -343,20 +354,10 @@
                 <div class="video-overlay"></div>
                 <div class="logo-header"></div>
 
-                <video id="mainVideo" loop playsinline>
+                <video id="mainVideo" loop playsinline controls>
                     <source src="video/video-odonto.mp4" type="video/mp4">
                     Seu navegador não suporta vídeos HTML5.
                 </video>
-
-                <div class="video-controls">
-                    <button class="play-pause-btn" id="playPauseBtn" aria-label="Play/Pause"></button>
-                </div>
-
-                <div class="scroll-hint">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M12 4l-8 8h5v8h6v-8h5z"/>
-                    </svg>
-                </div>
             </div>
         </section>
 
@@ -378,32 +379,19 @@
     <script>
         const scrollContainer = document.getElementById('scrollContainer');
         const mainVideo = document.getElementById('mainVideo');
-        const playPauseBtn = document.getElementById('playPauseBtn');
         const pageCounter = document.getElementById('pageCounter');
         const indicators = document.querySelectorAll('.indicator-dot');
         const sections = document.querySelectorAll('.section');
         
         let currentSection = 0;
 
-        playPauseBtn.addEventListener('click', () => {
-            if (mainVideo.paused) {
-                mainVideo.play();
-                playPauseBtn.classList.add('playing');
-            } else {
-                mainVideo.pause();
-                playPauseBtn.classList.remove('playing');
-            }
-        });
-
         const videoObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.target === sections[0]) {
                     if (entry.isIntersecting) {
                         mainVideo.play();
-                        playPauseBtn.classList.add('playing');
                     } else {
                         mainVideo.pause();
-                        playPauseBtn.classList.remove('playing');
                     }
                 }
             });
@@ -477,7 +465,6 @@
 
         window.addEventListener('load', () => {
             mainVideo.pause();
-            playPauseBtn.classList.remove('playing');
         });
         
         const fadeObserver = new IntersectionObserver((entries) => {
