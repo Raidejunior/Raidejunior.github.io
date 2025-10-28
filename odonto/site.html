@@ -486,10 +486,26 @@
             document.documentElement.style.setProperty('--vh', `${vh}px`);
         }
 
-        setRealViewportHeight();
-        window.addEventListener('resize', setRealViewportHeight);
-        window.addEventListener('orientationchange', setRealViewportHeight);
+        function setRealViewportHeight() {
+            // Pega a altura visível exata (inclui teclado e barra inferior)
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
 
+        // Atualiza quando a tela muda de tamanho ou rotação
+        window.addEventListener('resize', setRealViewportHeight);
+        window.addEventListener('orientationchange', () => {
+        // Força o recálculo após pequena pausa — o Safari demora a atualizar o innerHeight
+        setTimeout(() => setRealViewportHeight(), 300);
+        });
+
+        // Chama na primeira carga
+        setRealViewportHeight();
+
+        // Corrige também após o vídeo carregar (Safari às vezes altera o viewport)
+        window.addEventListener('load', () => {
+            setTimeout(() => setRealViewportHeight(), 200);
+        });
     </script>
 </body>
 </html>
