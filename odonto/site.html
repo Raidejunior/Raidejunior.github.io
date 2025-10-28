@@ -222,6 +222,34 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
+        @media(min-width: 1500px) {
+        .scroll-container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+            position: relative;
+            scrollbar-width: none;
+        }
+        .scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .section {
+            height: 100svh;
+            height: 100dvh;
+            height: 100vh;
+            width: 100vw;
+            scroll-snap-align: start;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-in-out forwards;
+        }
+        }
+
         @media (max-width: 768px) {
             .logo-header {
                 top: 30px;
