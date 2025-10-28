@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OdontoVida - Seu Sorriso Nossa Missão</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,24 +33,24 @@
         }
 
         .scroll-container {
-            height: 100svh;
-            height: 100dvh;
-            height: 100vh;
+            height: calc(var(--vh, 1vh) * 100);
             overflow-y: scroll;
             scroll-snap-type: y mandatory;
             scroll-behavior: smooth;
             position: relative;
             scrollbar-width: none;
+
+            /* 👇 Adiciona espaço de segurança no rodapé da viewport */
+            padding-bottom: env(safe-area-inset-bottom);
         }
 
         .scroll-container::-webkit-scrollbar {
             display: none;
         }
 
+
         .section {
-            height: 100svh;
-            height: 100dvh;
-            height: 100vh;
+            min-height: calc(var(--vh, 1vh) * 100 - env(safe-area-inset-bottom));
             width: 100vw;
             scroll-snap-align: start;
             position: relative;
@@ -59,14 +59,8 @@
             justify-content: center;
             opacity: 0;
             animation: fadeIn 0.8s ease-in-out forwards;
-            transition: opacity 0.8s ease-in-out, transform 0.6s ease-in-out;
-            transform: scale(1);
         }
 
-        .section.is-visible {
-            opacity: 1;
-            transform: scale(1);
-        }
 
         @keyframes fadeIn {
             to {
@@ -126,18 +120,13 @@
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
         }
 
-        /* ===== Ajuste apenas no botão de play ===== */
-        /* Corrige o alinhamento central do botão de play */
         .video-controls {
-            position: sticky;
-            bottom: calc(20px + env(safe-area-inset-bottom));
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 2;
         }
-
 
         .play-pause-btn {
             background: rgba(255, 255, 255, 0.9);
@@ -186,18 +175,6 @@
             background-repeat: no-repeat;
             background-color: #fff; 
             position: relative;
-        }
-
-        .photo-section::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 30%;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
-            z-index: 1;
-            pointer-events: none;
         }
 
         .scroll-indicator {
@@ -250,6 +227,10 @@
                 top: 30px;
             }
 
+            .video-controls {
+                bottom: 30px;
+            }
+
             .play-pause-btn {
                 width: 50px;
                 height: 50px;
@@ -275,7 +256,7 @@
 
         .scroll-hint {
             position: absolute;
-            bottom: 0px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 2;
@@ -300,6 +281,30 @@
                 transform: translateX(-50%) translateY(-5px);
             }
         }
+        
+        .section {
+            transition: opacity 0.8s ease-in-out, transform 0.6s ease-in-out;
+            opacity: 0.4;
+            transform: scale(1);
+        }
+        .section.is-visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        
+        .photo-section::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+            z-index: 1;
+            pointer-events: none;
+        }
+
     </style>
 </head>
 <body>
@@ -315,10 +320,9 @@
                     Seu navegador não suporta vídeos HTML5.
                 </video>
 
-                <!-- alterado apenas aqui -->
-                <footer class="video-controls">
+                <div class="video-controls">
                     <button class="play-pause-btn" id="playPauseBtn" aria-label="Play/Pause"></button>
-                </footer>
+                </div>
 
                 <div class="scroll-hint">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -406,6 +410,7 @@
             });
         });
 
+        
         let wasAtBottom = false;
 
         function isAtBottom() {
@@ -417,6 +422,7 @@
             wasAtBottom = isAtBottom();
         });
 
+        
         scrollContainer.addEventListener('wheel', (e) => {
             if (wasAtBottom && e.deltaY > 0) {
                 e.preventDefault();
@@ -424,6 +430,7 @@
             }
         }, { passive: false });
 
+        
         let touchStartY = 0;
 
         scrollContainer.addEventListener('touchstart', (e) => {
@@ -444,18 +451,30 @@
             mainVideo.pause();
             playPauseBtn.classList.remove('playing');
         });
-
+        
         const fadeObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
+                entry.target.classList.add('is-visible');
                 } else {
-                    entry.target.classList.remove('is-visible');
+                entry.target.classList.remove('is-visible');
                 }
-            });
+        });
         }, { threshold: 0.3 });
 
         sections.forEach(section => fadeObserver.observe(section));
+
+
+        // ===== CORREÇÃO DE ALTURA REAL (INCLUINDO iPHONE SAFE AREA) =====
+        function setRealViewportHeight() {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+
+        setRealViewportHeight();
+        window.addEventListener('resize', setRealViewportHeight);
+        window.addEventListener('orientationchange', setRealViewportHeight);
+
     </script>
 </body>
 </html>
