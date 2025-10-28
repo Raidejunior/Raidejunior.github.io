@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>OdontoVida - Seu Sorriso Nossa Missão</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -514,6 +514,20 @@
 
         // Garante altura correta após carregamento completo
         window.addEventListener('load', () => setTimeout(setRealViewportHeight, 200));
+
+        // ===== Neutraliza o zoom de orientação no Safari/Chrome =====
+        let lastOrientation = window.orientation;
+
+        window.addEventListener('orientationchange', () => {
+            document.body.style.transition = 'transform 0.25s ease';
+            document.body.style.transform = 'scale(1)';
+
+            // Reforça a escala correta após o navegador tentar aplicar zoom
+            setTimeout(() => {
+                document.body.style.transform = '';
+                lastOrientation = window.orientation;
+            }, 400);
+        });
 
 
     </script>
